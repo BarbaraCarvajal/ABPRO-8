@@ -3,9 +3,11 @@
 
 Una empresa de asesorías en prevención de riesgos necesita contar con un sistema de información que le permita administrar los principales procesos que se llevan a cabo en ella día a día.
 Como parte de las entidades que conforman el proyecto, se establecieron la clase Usuario, la que contiene los datos de quienes tienen acceso a la plataforma. Existen tres tipos de usuario: Cliente, Profesional y Administrativo. La primera de ellas ya fue establecida, mientras que los datos necesarios para las otras clases son:
+
 Profesional:
 - Título
 - Fecha de ingreso
+
 Administrativo
 - Área
 - Experiencia previa
