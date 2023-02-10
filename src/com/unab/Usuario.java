@@ -30,7 +30,7 @@ public class Usuario implements Asesoria{
 	//En la clase padre, el método analizarUsuario()mostrar el nombre de usuario.
 	@Override
 	public void analizarUsuario() {
-		
+		System.out.println("-------------------------------\n");
 		System.out.println("El nombre del usuario es: "+ getNombre());
 	}
 
@@ -132,8 +132,6 @@ public class Usuario implements Asesoria{
 		return "\n* NOMBRES --> " + nombre + "\n* RUT  --> " + rut + "\n* FECHA NACIMIENTO --> " + fechaNac;
 
 	}
-
-	
 
 	/**
 	 * @return the nombre

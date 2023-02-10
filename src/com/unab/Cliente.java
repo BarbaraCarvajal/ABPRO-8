@@ -31,8 +31,6 @@ public class Cliente extends Usuario{
 		this.comuna = comuna;
 		this.edad = edad;
 	}
-	
-	
 
 	@Override
 	public String toString() {
@@ -49,7 +47,17 @@ public class Cliente extends Usuario{
 	public void analizarUsuario() {
 		
 		//System.out.println("El nombre del usuario es: "+ getNombre());
-		System.out.println("El nombre del cliente es: "+ getNombre());
+		System.out.println("\n-------------------------------");
+		System.out.println("Analisis de datos de Cliente \n");
+		System.out.println("Los nombres del cliente es: "+ getNombre());
+		System.out.println("Los apellidos del cliente es: "+getApellidos());
+		System.out.println("El telefono de "+getNombre()+" es: "+getTelefono());
+		System.out.println("La afp de "+getNombre()+" es: "+getAfp());
+		System.out.println("El sistema de salud de "+getNombre()+" es: "+obtenerSistemaSalud());
+		System.out.println("La dirección de donde vive "+getNombre()+" es: "+getDireccion());
+		System.out.println("La comuna de donde vive "+getNombre()+ " es: "+getComuna());
+		System.out.println("La edad de "+getNombre()+" es: "+getEdad());
+		
 	}
 
 	//- obtenerNombre(): retorna un String con el nombre completo del cliente (nombres +
