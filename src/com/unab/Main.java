@@ -16,9 +16,13 @@ public class Main {
 	static Capacitacion cap1 = new Capacitacion("11223", "77.333.222", "martes", "12:20", "Unab Vinia del mar", "5", "12", "43434");
 	static Capacitacion cap2 = new Capacitacion("22332","20.888.222","viernes","20:30","unab","4","5","44444");
 
-	static Cliente cliente1 = new Cliente("Romina Daniela", "Romo Cornejo", "18.233.222", "32435544", "Modelo", "1", "La casa 123", "Valparaiso", "28");
-	static Cliente cliente2 = new Cliente("barbara camila", "carvajal saez", "11.111.111", "38784433", " Pro vida", "2", "calle 12345", " quilpue", " 29");
+	static Cliente cliente1 = new Cliente("Romina Daniela", "Romo Cornejo","07-03-1995", "18.233.222", "32435544", "Modelo", "1", "La casa 123", "Valparaiso", "28");
+	static Cliente cliente2 = new Cliente("Barbara camila", "carvajal saez", "13-08-1993",  "11.111.111", "934345566", "ProVida", "2", "Calle 123", "Quilpue", "29");
+	
+	static Profesional profesional1 = new Profesional("Mokita", "13-02-2019", "18.222.222", "Informatico", "01-01-2022");
+	static Administrativo admin1 = new Administrativo("Latte", "04-02-2000", "20.222.333", "Ventas", "4");
 
+	static Revision revision1 = new Revision("23232", "Revision cascos", "revisar si se lleva correctamente el casco de seguridad", "2");
 	static Scanner sc = new Scanner(System.in);
 
 	/**
@@ -27,18 +31,7 @@ public class Main {
 	 */
 	public static void cliente() {
 		/* 
-		System.out.println("\nFORMULARIO DE CLIENTES");
-
-		cliente1.setNombres(cliente1.validarLetras("\nIngresa tus nombres --> ", sc).toLowerCase());
-		cliente1.setApellidos(cliente1.validarLetras("Ingresa tus apellidos --> ", sc).toLowerCase());
-		cliente1.setRut(cliente1.validarRut("Ingresa tu rut (ej: 99.999.999) --> ", sc));
-		cliente1.setEdad(cliente1.validarEdad("Ingresa tu edad (ej: 23) --> ", sc));
-		cliente1.setTelefono(cliente1.validarTelefono("Ingresa tu numero de telefono (8 digitos) --> ", sc));
-		cliente1.setDireccion(cliente1.validarDireccion("Ingresa tu dirección --> ", sc).toLowerCase());
-		cliente1.setComuna(cliente1.validarDireccion("Ingresa tu comuna de residencia --> ", sc).toLowerCase());
-		cliente1.setAfp(cliente1.validarLetras("Ingresa tu AFP --> ", sc).toLowerCase());
-		cliente1.setSistemaSalud(cliente1.validarSalud("Ingresa tu Sistema de Salud (1. fonasa - 2. isapre) --> ", sc).toLowerCase());
-
+	
 		// Entrega un detalle de los datos ingresados por el usuario
 		*/
 		System.out.println("\n[Cliente 1]");
@@ -86,14 +79,8 @@ public class Main {
 		public static void usuario() {
 		
 		System.out.println("\nFORMULARIO DE USUARIOS");
-			/* 
-		// Llamado a método para validar los datos de la capacitación y asignación del
-		// resultado.
-		user1.setNombre(user1.validarLetras("\nIngresa el nombre del usuario --> ", sc).toLowerCase());
-		user1.setRut(user1.validarRut("Ingresa tu rut (99.999.999) --> ", sc));
-		user1.setFechaNac(user1.validarFecha("Ingresa tu fecha de nacimiento (dd-mm-yyyy) --> ", sc));
-		System.out.println(user1.mostrarEdad());
-		*/
+		
+	
 		// Entrega un detalle de los datos ingresados por el usuario
 		System.out.println("\n[Usuario 1]");
 		System.out.println("----------------------");
@@ -125,18 +112,7 @@ public class Main {
 	public static void capacitacion() {
 
 		System.out.println("\nFORMULARIO DE CAPACITACIÓN");
-		/* 
-		// Llamado a método para validar los datos de la capacitación y asignación del
-		// resultado.
-		cap1.setId(cap1.validarId("\nIngresa un ID (5 a 8 cáracteres) --> ", sc).toLowerCase());
-		cap1.setRutCliente(cap1.validarRut("Ingresa el rut de Cliente (99.999.999) --> ", sc));
-		cap1.setDía(cap1.validarDia("Ingrese el día de la capacitación --> ", sc).toLowerCase());
-		cap1.setHora(cap1.validarHora("Ingresa la hora de la capacitación (hh:mm) --> ", sc));
-		cap1.setLugar(cap1.validarLugar("Ingresa el lugar de la capacitación --> ", sc).toLowerCase());
-		cap1.setDuración(cap1.validarDuracion("Ingresa la duración de la capacitacion en horas --> ", sc));
-		cap1.setAsistentes(cap1.validarAsistentes("Ingresa la cantidad de asistentes (max 999) --> ", sc));
-		cap1.setNumeroInterno(cap1.validarNumeroInterno("Ingrese el numero interno (3-5 digitos) --> ", sc));
-		*/
+		
 		// mostrar detalle de la capacitacion.
 		System.out.println(cap1.mostrarDetalle());
 
@@ -367,8 +343,6 @@ public static void modificarCapacitacion(){
 				default:{
 					System.out.println("Opcion no valida");
 				}
-
-
 			}
 		}
 	}
@@ -411,10 +385,6 @@ public static void menu() {
 		}
 	}
 }
-
-
-
-	
 	/**
 	 * @param args
 	 */
@@ -427,6 +397,12 @@ public static void menu() {
 		System.out.println("\n-------------------------------");
 		usuario();
 		System.out.println("\n-------------------------------");
+
+		System.out.println(revision1.toString());
+		user1.analizarUsuario();
+		cliente1.analizarUsuario();
+		profesional1.analizarUsuario();
+		admin1.analizarUsuario();
 		menu();
 	}
 }

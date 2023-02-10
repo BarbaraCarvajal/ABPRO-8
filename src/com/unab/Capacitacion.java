@@ -17,15 +17,11 @@ import java.util.Scanner;
 	 * @param sc Scanner para la entrada de datos por parte del usuario.
 	 * @return La cadena de caracteres correspondiente al valor ingresado, validado y asignado a cada atributo.
  */
-public class Capacitacion extends Persona{
+public class Capacitacion{
 	
 	/*Atributos propios de la clase*/
 	String id,rut, dia, hora, lugar, duracion, asistentes, numeroInterno;
 	
-	/*Constructor que instancia la clase, incluyendo "super" que llamará a la superclase*/
-	Capacitacion(){
-		super();
-	}
 	
 	public Capacitacion(String id,String rut, String dia, String hora, String lugar, String duracion, String asistentes, String numeroInterno) {
 		this.id = id;
@@ -283,9 +279,6 @@ public class Capacitacion extends Persona{
 		return entrada;
 	}
 
-
-
-	
 	/**
 	 * @return the id
 	 */

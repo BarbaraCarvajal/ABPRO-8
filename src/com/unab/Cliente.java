@@ -14,23 +14,16 @@ import java.util.Scanner;
 	 * @param sc Scanner para la entrada de datos por parte del usuario.
 	 * @return La cadena de caracteres correspondiente al valor ingresado, validado y asignado a cada atributo.
  */
-public class Cliente extends Persona{
+public class Cliente extends Usuario{
 	
-	String nombres, apellidos, telefono, afp, sistemaSalud, direccion, comuna, edad;
+	String apellidos, telefono, afp, sistemaSalud, direccion, comuna, edad;
 	
+
 	/*Constructor que instanciará la clase en el Main, incluyendo super que llama a la superclase*/
-	public Cliente() {
-		super();
-	}
-
-	
-
-	public Cliente(String nombres, String apellidos,String rut, String telefono, String afp, String sistemaSalud, String direccion,
-			String comuna, String edad) {
-				super();
-		this.nombres = nombres;
+	public Cliente(String nombre, String apellidos, String fechaNac, String rut, String telefono, String afp,
+			String sistemaSalud, String direccion, String comuna, String edad) {
+		super(nombre, fechaNac, rut);
 		this.apellidos = apellidos;
-		this.rut = rut;
 		this.telefono = telefono;
 		this.afp = afp;
 		this.sistemaSalud = sistemaSalud;
@@ -38,23 +31,31 @@ public class Cliente extends Persona{
 		this.comuna = comuna;
 		this.edad = edad;
 	}
-
-
+	
+	
 
 	@Override
 	public String toString() {
-		return "\n* NOMBRES --> " + nombres + "\n* APELLIDOS --> "
+		return "\n* NOMBRES --> " + nombre + "\n* APELLIDOS --> "
 				+ apellidos + "\n* RUT  --> " + rut + "\n* EDAD --> " + edad + " años" + "\n* TELÉFONO --> " + " +56 9 "
 				+ telefono + "\n* AFP -->  " + afp + "\n* SISTEMA SALUD --> " + obtenerSistemaSalud() + "\n* DIRECCIÓN --> "
 				+ direccion + "\n* COMUNA --> " + comuna;
 	}
 
-	
+// En las clases hijas, el método analizarUsuario() debe desplegar la información del 
+// método correspondiente al padre, y los datos expuestos en las clases hijas.
 
-//- obtenerNombre(): retorna un String con el nombre completo del cliente (nombres +
+@Override
+	public void analizarUsuario() {
+		
+		//System.out.println("El nombre del usuario es: "+ getNombre());
+		System.out.println("El nombre del cliente es: "+ getNombre());
+	}
+
+	//- obtenerNombre(): retorna un String con el nombre completo del cliente (nombres +
 //  apellidos)
 	public String obtenerNombre(){
-		String nombreCompleto = this.nombres + " " + this.apellidos;
+		String nombreCompleto = this.nombre + " " + this.apellidos;
 		return nombreCompleto;
 	}
 
@@ -66,14 +67,11 @@ public String obtenerSistemaSalud(){
 
 	if (this.sistemaSalud.equals("1")){
 		 sistema = "Fonasa";
-
 	}else if (this.sistemaSalud.equals("2")){
 		sistema = "Isapre";
-
 	}else{
-		System.out.println("norsts");
+		System.out.println("No informado ");
 	}
-	
 	return sistema;
 }
 
@@ -190,14 +188,14 @@ public String obtenerSistemaSalud(){
 	 * @return the nombres
 	 */
 	public String getNombres() {
-		return nombres;
+		return nombre;
 	}
 
 	/**
 	 * @param nombres the nombres to set
 	 */
 	public void setNombres(String nombres) {
-		this.nombres = nombres;
+		this.nombre = nombres;
 	}
 
 	/**

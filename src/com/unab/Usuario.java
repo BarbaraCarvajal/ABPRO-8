@@ -15,23 +15,23 @@ import java.util.Scanner;
 	 * @param sc Scanner para la entrada de datos por parte del usuario.
 	 * @return La cadena de caracteres correspondiente al valor ingresado, validado y asignado a cada atributo.
  */
-public class Usuario extends Persona {
+public class Usuario implements Asesoria{
 	
-	String nombre, fechaNac;
+	String nombre, fechaNac, rut;
 	
-	/**
-	 * Constructor que instancia la clase, incluyendo super que llama a la superclase.
-	 */
-	public Usuario() {
-		super();
-	}
-
+	public Usuario(String nombre, String fechaNac, String rut) {
 	
-		public Usuario(String nombre, String fechaNac, String rut) {
-		
 		this.nombre = nombre;
 		this.fechaNac = fechaNac;
 		this.rut = rut;
+	}
+	
+// La clase Usuario debe implementar la interface anterior.
+	//En la clase padre, el método analizarUsuario()mostrar el nombre de usuario.
+	@Override
+	public void analizarUsuario() {
+		
+		System.out.println("El nombre del usuario es: "+ getNombre());
 	}
 
 	//- mostrarEdad(): retorna un mensaje que diga “El usuario tiene X años”, en donde X es la
@@ -39,15 +39,12 @@ public class Usuario extends Persona {
 
 		public String mostrarEdad(){
 
-
 			String fecha =this.getFechaNac();
 			String[] elementos = fecha.split("-");
 
 			int num = Integer.parseInt(elementos[2]);
 			int edad = 2023 - num;
-
 			return "\nEl usuario " + this.nombre + " tiene " + edad + " años";
-
 		}
 
 	/**
@@ -78,12 +75,65 @@ public class Usuario extends Persona {
 		return input;
 	}
 
+
+	/**
+	 * Metodo que valida el formato de un input, que será utilizado para validar Nombres, Apellidos y otros atributos con las mismas caracteristicas.
+	 */
+	public String validarLetras(String mensaje, Scanner sc) {
+
+		boolean condicion = true;
+		String input = "";
+
+		while (condicion) {
+
+			System.out.print("\n" + mensaje);
+			input = sc.nextLine();
+
+			if (input.matches("[a-z A-Z\\s]+$")) {
+
+				condicion = false;
+			} else {
+
+				System.out.println("Dato ingresado no valido, intentalo nuevamente");
+			}
+
+		}
+		return input;
+	}
+
+	/**
+	 * Método que valida el formato del RUN ingresado por el usuario.
+	 */
+	public String validarRut(String mensaje, Scanner sc) {
+
+		boolean condRut = true;
+		String input = "";
+
+		while (condRut) {
+
+			System.out.print("\n" + mensaje);
+			input = sc.nextLine();
+
+			if (input.matches("\\d{2}.\\d{3}.\\d{3}")) {
+
+				condRut = false;
+			} else {
+
+				System.out.println("Rut ingresado no valido, intentalo nuevamente");
+			}
+		}
+		return input;
+	}
+
+
 	@Override
 	public String toString() {
 
 		return "\n* NOMBRES --> " + nombre + "\n* RUT  --> " + rut + "\n* FECHA NACIMIENTO --> " + fechaNac;
 
 	}
+
+	
 
 	/**
 	 * @return the nombre
@@ -92,7 +142,6 @@ public class Usuario extends Persona {
 		return nombre;
 	}
 
-
 	/**
 	 * @param nombre the nombre to set
 	 */
@@ -100,14 +149,12 @@ public class Usuario extends Persona {
 		this.nombre = nombre;
 	}
 
-
 	/**
 	 * @return the fechaNac
 	 */
 	public String getFechaNac() {
 		return fechaNac;
 	}
-
 	
 	/**
 	 * @param fechaNac the fechaNac to set
@@ -116,6 +163,13 @@ public class Usuario extends Persona {
 		this.fechaNac = fechaNac;
 	}
 
+	public String getRut() {
+		return rut;
+	}
+
+	public void setRut(String rut) {
+		this.rut = rut;
+	}
 
 	
 	
