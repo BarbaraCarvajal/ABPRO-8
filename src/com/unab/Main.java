@@ -30,8 +30,6 @@ public class Main {
 		
 		// agregamos los usuarios anteriormente creados a la lista
 		
-		
-		
 		listaPrueba.agregarUsuario(user1);
 		listaPrueba.agregarUsuario(profesional1);
 		listaPrueba.agregarUsuario(admin1);
